@@ -55,6 +55,19 @@ namespace HoshoAudit
             Assert.AreEqual(localVar, "This is local");
         }
 
-
+        [TestMethod]
+        public async Task returnXVar_GlobalVarIs64_AssertResult()
+        {
+            var testVar = await variables.returnXVar().Call();
+            Assert.AreEqual(64, testVar);
+        }
+        
+        [TestMethod]
+        public async Task setReturnYVar_SetYVar_AssertResult()
+        {
+            uint yVar = 19;
+            var testVar = await variables.setReturnYVar(yVar).Call();
+            Assert.AreEqual(yVar, testVar);
+        }
     }
 }

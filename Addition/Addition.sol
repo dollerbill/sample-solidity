@@ -1,6 +1,6 @@
 pragma solidity ^0.4.2;
 
-contract Add2Ints {
+contract Addition {
     event Adding(uint256 sum);
     uint amount;
     

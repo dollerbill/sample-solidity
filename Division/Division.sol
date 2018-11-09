@@ -1,6 +1,6 @@
 pragma solidity ^0.4.2;
 
-contract Div2Ints {
+contract Division {
     event Divide(uint256 quotient);
     uint amount;
     

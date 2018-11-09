@@ -15,33 +15,33 @@ using Meadow.CoverageReport.Debugging;
 namespace HoshoAudit
 {
     [TestClass]
-    public class Add2IntsTest : ContractTest
+    public class AdditionTests : ContractTest
     {
-        protected Add2Ints adding;
+        protected Addition adding;
 
         protected override async Task BeforeEach()
         {
-            adding = await Add2Ints.New(RpcClient);
+            adding = await Addition.New(RpcClient);
 
             // Peform contract deployments and other test setup.
         }
 
         [TestMethod]
-        public async Task Adding2IntsEvent()
+        public async Task addTwoIntegers_AssertSum_EmitEvent()
         {
             var result = await adding.addTwoIntegers(3, 75).FirstEventLog<Add2Ints.Adding>();
             Assert.AreEqual(result.sum, 78);
         }
 
         [TestMethod]
-        public async Task Adding2IntsCall()
+        public async Task addTwoIntegers_CallResult_AssertSum()
         {
             var result = await adding.addTwoIntegers(3, 75).Call();
             Assert.AreEqual(result, 78);
         }
 
         [TestMethod]
-        public async Task Adding2IntsCallAndTransact()
+        public async Task addTwoIntegers_CallAndTransact_AssertSumFromEvent()
         {
             var result = await adding.addTwoIntegers(3, 75).CallAndTransact();
             Assert.AreEqual(result.Result, 78);

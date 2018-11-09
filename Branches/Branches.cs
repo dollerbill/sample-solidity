@@ -25,31 +25,31 @@ namespace HoshoAudit
         }
 
         [TestMethod]
-        public async Task allBranches()
+        public async Task multipleBranches_X1GreaterY1GreaterZ_AllBranchesHit()
         {
             await branch.multipleBranches(3, 2, 1);
         }
 
         [TestMethod]
-        public async Task noBranches()
+        public async Task multipleBranches_XYZEqual_NoBranchesHit()
         {
             await branch.multipleBranches(1, 1, 1).ExpectRevertTransaction();
         }
 
         [TestMethod]
-        public async Task oneBranch()
+        public async Task multipleBranches_XGreaterYZEqual_OneBranchHit()
         {
             await branch.multipleBranches(10, 2, 2).ExpectRevertTransaction();
         }
 
         [TestMethod]
-        public async Task twoBranches()
+        public async Task multipleBranches_XGreaterY1GreaterZ_TwoBranchesHit()
         {
             await branch.multipleBranches(10, 5, 2).ExpectRevertTransaction();
         }
 
         [TestMethod]
-        public async Task threeBranches()
+        public async Task multipleBranches_XTripleYTripleZ_ThreeBranchesHit()
         {
             await branch.multipleBranches(10, 9, 3).ExpectRevertTransaction();
         }

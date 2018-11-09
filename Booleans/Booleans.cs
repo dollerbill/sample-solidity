@@ -25,14 +25,14 @@ namespace HoshoAudit
         }
 
         [TestMethod]
-        public async Task trueBoolReturnTrue()
+        public async Task isTruee_AmountsEqual_AssertTrue()
         {
             var result = await trueBool.isTrue(1, 1).CallAndTransact();
             Assert.AreEqual(result.Result, true);
         }
 
         [TestMethod]
-        public async Task trueBoolAssertFalse()
+        public async Task isTrue_AmountsNotEqual_AssertFalse()
         {
             var result = await trueBool.isTrue(5, 2).CallAndTransact();
             Assert.AreEqual(result.Result, false);
@@ -50,14 +50,14 @@ namespace HoshoAudit
         }
 
         [TestMethod]
-        public async Task falseBoolAssertFalse()
+        public async Task isFalse_AmountsNotEqual_AssertFalse()
         {
             var result = await falseBool.isFalse(1, 2).CallAndTransact();
             Assert.AreEqual(result.Result, false);
         }
 
         [TestMethod]
-        public async Task falseBoolAssertTrue()
+        public async Task isFalse_AmountsEqual_AssertTrue()
         {
             var result = await falseBool.isFalse(2, 2).CallAndTransact();
             Assert.AreEqual(result.Result, true);
